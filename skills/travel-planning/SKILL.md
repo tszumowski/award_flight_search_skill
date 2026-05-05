@@ -41,7 +41,7 @@ Help users plan trips by researching destinations, creating itineraries, and pro
 
 4. **Pair with Flight Search**
 
-   After destination recommendations, suggest searching for award flights using the flight-search skill or the `search_flights_tool` / `explore_flights_tool` to find the best point redemptions.
+    After destination recommendations, suggest searching for award flights using the flight-search skill or the `flight_hunter` Python library to find the best point redemptions.
 
 ## Group-Specific Advice
 

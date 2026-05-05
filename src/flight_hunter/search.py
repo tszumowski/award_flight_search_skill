@@ -191,8 +191,7 @@ def search_flights(
 
     Example:
         >>> from datetime import date
-        >>> from src.client import PointsYeahClient
-        >>> from src.search import search_flights
+        >>> from flight_hunter import PointsYeahClient, search_flights
         >>>
         >>> client = PointsYeahClient("user@example.com", "password")
         >>> results = search_flights(
@@ -305,7 +304,7 @@ def search_flights_simple(
 
     Example:
         >>> from datetime import date
-        >>> from src.search import search_flights_simple
+        >>> from flight_hunter import search_flights_simple
         >>>
         >>> flights = search_flights_simple(
         ...     "user@example.com", "password",

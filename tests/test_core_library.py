@@ -1,8 +1,8 @@
 """Tests for the core flight hunter library (src/)."""
 
 import pytest
-from src.locations import detect_location_type, parse_location, parse_locations, REGIONS, STATES, COUNTRIES, CONTINENTS
-from src.models import FlightOption, LocationFilter, Airport, ExplorerFlightOption
+from flight_hunter.locations import detect_location_type, parse_location, parse_locations, REGIONS, STATES, COUNTRIES, CONTINENTS
+from flight_hunter.models import FlightOption, LocationFilter, Airport, ExplorerFlightOption
 
 
 class TestDetectLocationType:
@@ -141,7 +141,7 @@ class TestFlightOption:
         assert flight.program_name == "United MileagePlus"
 
     def test_transfer_program_names(self):
-        from src.models import TransferProgram
+        from flight_hunter.models import TransferProgram
         flight = FlightOption(
             date="2026-03-01",
             stops=0,
@@ -165,7 +165,7 @@ class TestSearchWithCredentials:
 
     def test_search_flights_basic(self, credentials):
         from datetime import date, timedelta
-        from src import PointsYeahClient, search_flights
+        from flight_hunter import PointsYeahClient, search_flights
 
         username, password = credentials
         start = date.today() + timedelta(days=7)
@@ -187,7 +187,7 @@ class TestSearchWithCredentials:
 
     def test_explore_flights_region(self, credentials):
         from datetime import date, timedelta
-        from src import PointsYeahClient, explore_flights, LocationFilter
+        from flight_hunter import PointsYeahClient, explore_flights, LocationFilter
 
         username, password = credentials
         start = date.today() + timedelta(days=7)

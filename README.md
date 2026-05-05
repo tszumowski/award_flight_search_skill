@@ -6,30 +6,40 @@ Search award flight availability on [PointsYeah.com](https://pointsyeah.com) usi
 
 A Python library and CLI for searching PointsYeah's award flight database, plus portable skill definitions for AI agents.
 
+## Installation
+
+```bash
+# Install from GitHub
+pip install git+https://github.com/tszumowski/award_flight_search_skill.git
+
+# Or clone and install in editable mode (for development)
+git clone https://github.com/tszumowski/award_flight_search_skill.git
+cd award_flight_search_skill
+pip install -e ".[dev]"
+```
+
 ## Quick Start
 
 ```bash
-uv sync
-
 # Set credentials
 export POINTSYEAH_USERNAME="your_email@example.com"
 export POINTSYEAH_PASSWORD="your_password"
 
 # Search flights
-uv run main.py -o JFK -d CDG --cabin Business
+flight-hunter -o JFK -d CDG --cabin Business
 ```
 
 ## CLI Usage
 
 ```bash
 # Live search: JFK to Paris, next 4 days
-uv run main.py -o JFK -d CDG
+flight-hunter -o JFK -d CDG
 
 # Explorer search: US to Western Europe
-uv run main.py explore -f US -t WEU --days 7
+flight-hunter explore -f US -t WEU --days 7
 
 # Business class (case-insensitive: "business", "biz", etc.)
-uv run main.py -o JFK -d CDG --cabin Business
+flight-hunter -o JFK -d CDG --cabin Business
 ```
 
 Results are saved as CSV files in the current directory.
@@ -38,7 +48,7 @@ Results are saved as CSV files in the current directory.
 
 ```python
 from datetime import date, timedelta
-from src import PointsYeahClient, search_flights
+from flight_hunter import PointsYeahClient, search_flights
 
 with PointsYeahClient("email@example.com", "password") as client:
     results = search_flights(

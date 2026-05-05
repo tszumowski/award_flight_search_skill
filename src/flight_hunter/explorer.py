@@ -196,7 +196,7 @@ def explore_flights(
 
     Example:
         >>> from datetime import date, timedelta
-        >>> from src import PointsYeahClient, explore_flights, LocationFilter
+        >>> from flight_hunter import PointsYeahClient, explore_flights, LocationFilter
         >>>
         >>> with PointsYeahClient("user@example.com", "password") as client:
         ...     results = explore_flights(
@@ -426,7 +426,7 @@ def explore_flights_simple(
 
     Example:
         >>> from datetime import date, timedelta
-        >>> from src import explore_flights_simple, LocationFilter
+        >>> from flight_hunter import explore_flights_simple, LocationFilter
         >>>
         >>> flights = explore_flights_simple(
         ...     "user@example.com", "password",

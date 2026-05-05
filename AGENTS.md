@@ -10,7 +10,7 @@ When a user asks about **destinations, itineraries, trip planning, or travel adv
 
 ## Quick Reference
 
-- **Live flight search**: `src.search.search_flights()` — real-time, airport-to-airport
-- **Explorer search**: `src.explorer.explore_flights()` — cached data, regions/countries/states
-- **CLI entry point**: `main.py`
-- **Tests**: `uv run pytest tests/ -v`
+- **Live flight search**: `flight_hunter.search_flights()` — real-time, airport-to-airport
+- **Explorer search**: `flight_hunter.explore_flights()` — cached data, regions/countries/states
+- **CLI entry point**: `flight-hunter` command (or `main.py` for backward compatibility)
+- **Tests**: `pytest tests/ -v`

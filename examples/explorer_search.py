@@ -8,13 +8,9 @@ Requires POINTSYEAH_USERNAME and POINTSYEAH_PASSWORD environment variables.
 """
 
 import os
-import sys
 from datetime import date, timedelta
 
-# Add parent directory to path so we can import src
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-
-from src import PointsYeahClient, explore_flights, LocationFilter
+from flight_hunter import PointsYeahClient, explore_flights, LocationFilter
 
 
 def main():

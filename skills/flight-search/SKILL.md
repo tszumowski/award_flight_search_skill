@@ -10,13 +10,16 @@ Search award flight availability on PointsYeah.com using the `flight_hunter` Pyt
 ## Installation
 
 ```bash
-# Clone the repository
-git clone <repo-url>
-cd flight_hunter
+# Install directly from GitHub
+pip install git+https://github.com/tszumowski/award_flight_search_skill.git
 
-# Install dependencies (uv creates .venv automatically)
-uv sync
+# Or clone and install in editable mode
+git clone https://github.com/tszumowski/award_flight_search_skill.git
+cd award_flight_search_skill
+pip install -e .
 ```
+
+This installs the `flight_hunter` Python package and the `flight-hunter` CLI command.
 
 ## Set Credentials
 
@@ -31,23 +34,23 @@ export POINTSYEAH_PASSWORD="your_password"
 
 ```bash
 # Search JFK to LAX for next 4 days
-uv run main.py --origin JFK --destination LAX
+flight-hunter -o JFK -d LAX
 
 # Search with custom dates and cabin filter
-uv run main.py --origin JFK --destination CDG --start-date 2026-03-01 --end-date 2026-03-07 --cabin Business
+flight-hunter -o JFK -d CDG --start-date 2026-03-01 --end-date 2026-03-07 --cabin Business
 
 # Explorer search: JFK to Western Europe
-uv run main.py explore --from JFK --to WEU --days 7
+flight-hunter explore -f JFK -t WEU --days 7
 
 # Multiple origins/destinations (all combinations)
-uv run main.py --origin SFO --origin OAK --destination JFK --destination BOS --days 7
+flight-hunter -o SFO -o OAK -d JFK -d BOS --days 7
 ```
 
 ## Quick Start — Programmatic
 
 ```python
 from datetime import date, timedelta
-from src import PointsYeahClient, search_flights
+from flight_hunter import PointsYeahClient, search_flights
 
 with PointsYeahClient("email@example.com", "password") as client:
     results = search_flights(
@@ -109,7 +112,7 @@ Returns one best-value flight per destination airport.
 Flexible location filter supporting multiple location types:
 
 ```python
-from src import LocationFilter
+from flight_hunter import LocationFilter
 
 # Airports only
 LocationFilter(airports=["JFK", "EWR"])

@@ -8,13 +8,9 @@ Requires POINTSYEAH_USERNAME and POINTSYEAH_PASSWORD environment variables.
 """
 
 import os
-import sys
 from datetime import date, timedelta
 
-# Add parent directory to path so we can import src
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-
-from src import PointsYeahClient, explore_flights_aggregate, LocationFilter
+from flight_hunter import PointsYeahClient, explore_flights_aggregate, LocationFilter
 
 
 def main():
@@ -41,7 +37,6 @@ def main():
         )
 
     print(f"Found best options for {len(results)} destinations:")
-    # Sort by miles
     sorted_results = sorted(results.items(), key=lambda x: x[1].miles)
     for airport_code, flight in sorted_results[:10]:
         print(
